@@ -6,11 +6,11 @@ const { URL, CHANNELID, TOKEN, STATUS } = process.env
 const client = new discord.Client();
 
 if (!TOKEN) {
-    console.error("token invalido");
+    console.error("token invalide");
 } else if (!CHANNELID || !Number(CHANNELID)) {
-    console.error("id do canal inválido");
+    console.error("identifiant de salon invalide");
 } else if (!ytdl.validateURL(URL)) {
-    console.error("link do vídeo inválido.");
+    console.error("lien de vidéo invalide");
 }
 
 let channel = null;
@@ -22,7 +22,7 @@ client.on('ready', async() => {
     client.user.setActivity(STATUS || "CyberDev Radio - Tomorrowland",{ type: 'LISTENING'})
     channel = client.channels.cache.get(CHANNELID) || await client.channels.fetch(CHANNELID);
 
-    if (!channel || channel.type !== "voice") return console.error("canal de voz não existe")
+    if (!channel || channel.type !== "voice") return console.error("le canal vocal n'existe pas")
 
     broadcast = client.voice.createBroadcast();
     stream.on('error', console.error);

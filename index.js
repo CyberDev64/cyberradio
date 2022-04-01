@@ -19,7 +19,7 @@ let stream = ytdl(URL, { highWaterMark: 100 << 150,filter: 'audio'})
 client.on('ready', async() => {
 
     
-    client.user.setActivity(STATUS || "Radio CODE-FI",{ type: 'LISTENING'})
+    client.user.setActivity(STATUS || "CyberDev Radio - Tomorrowland",{ type: 'LISTENING'})
     channel = client.channels.cache.get(CHANNELID) || await client.channels.fetch(CHANNELID);
 
     if (!channel || channel.type !== "voice") return console.error("canal de voz não existe")
@@ -40,7 +40,7 @@ client.on('ready', async() => {
     } catch (error) {
         console.error(error);
     }
-  console.log("CODE-FI Online!")
+  console.log("CyberRadio Online !")
 });
 setInterval(async ()=>{   
              await channel.leave()
